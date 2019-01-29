@@ -1,0 +1,12 @@
+.remove-items {
+    width: 100%;
+    padding: $s-size;
+
+    display: flex;
+    justify-content: space-evenly;
+
+    button {
+        width: 50%;
+        height: 30px;
+    }
+}

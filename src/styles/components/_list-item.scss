@@ -1,0 +1,20 @@
+.list-item {
+    width: 100%;
+    border: 1px black solid;
+    padding: 0 $s-size;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+// .list-item__checkbox {
+//     width: 30px;
+// }
+
+
+.completed {
+    background: rgba(49, 165, 49, 0.5);
+    text-decoration: line-through;
+}
