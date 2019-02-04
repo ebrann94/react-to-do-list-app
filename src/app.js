@@ -76,8 +76,10 @@ class App extends React.Component {
                 <Header />
                 <div className="container">
                     <div className="list-widget">
-                        <AddItem handleAddItem={this.handleAddItem} />
-                        <RemoveItems handleRemoveAll={this.handleRemoveAll} handleRemoveCompleted={this.handleRemoveCompleted} />
+                        <div className="list-controls">
+                            <AddItem handleAddItem={this.handleAddItem} />
+                            <RemoveItems handleRemoveAll={this.handleRemoveAll} handleRemoveCompleted={this.handleRemoveCompleted} />
+                        </div>
                         <List items={this.state.items} handleCompleteItem={this.handleCompleteItem}/>
                     </div>
                 </div>

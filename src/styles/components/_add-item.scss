@@ -1,11 +1,11 @@
 .add-item {
     width: 100%;
-    padding: $s-size;
 
     form {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        
     }
 }
 
@@ -15,8 +15,7 @@
 
     outline: none;
     margin: 0 $s-size 0 0;
-}
 
-// .add-item__btn {
-//     width: 25%;
-// }
+    border-radius: $border-radius;
+    border: 1px solid $light-grey;
+}

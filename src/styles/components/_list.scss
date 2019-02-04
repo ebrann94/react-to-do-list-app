@@ -1,0 +1,12 @@
+.items-container {
+    box-shadow: $grey-shadow;
+    background: white;
+
+    border-radius: $border-radius;
+    overflow: hidden;
+}
+
+.list-controls {
+    margin-bottom: $m-size;
+    width: 500px;
+}

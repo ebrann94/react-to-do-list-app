@@ -4,6 +4,7 @@
 
 html {
     font-size: 62.5%;
+    background: rgb(64, 64, 189);
 }
 
 body {
@@ -13,6 +14,13 @@ body {
 
 button {
     cursor: pointer;
+    background: white;
+    color: $dark-grey;
+
+    border-radius: $border-radius;
+    border: 1px solid $light-grey;
+    
+    outline: none;
 }
 
 button:disabled {

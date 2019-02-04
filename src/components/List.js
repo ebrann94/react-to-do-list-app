@@ -8,7 +8,7 @@ class List extends React.Component {
 
     render() {
         return (
-            <div className="">
+            <div className="items-container">
                 {
                     this.props.items.map((item, index) => {
                         return (<ListItem 

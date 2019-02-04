@@ -1,12 +1,12 @@
 .remove-items {
     width: 100%;
-    padding: $s-size;
+    padding: $s-size 0;
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     button {
-        width: 50%;
+        width: 48%;
         height: 30px;
     }
 }
