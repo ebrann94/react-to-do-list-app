@@ -3,6 +3,7 @@ import Header from './components/Header';
 import List from './components/List';
 import AddItem from './components/AddItem';
 import RemoveItems from './components/RemoveItems';
+import uuid from 'uuid';
 
 class App extends React.Component {
     constructor() {
@@ -10,9 +11,11 @@ class App extends React.Component {
 
         this.state = {
             items: [{
+                id: uuid(),
                 item: 'Laundry',
                 completed: false
             }, {
+                id: uuid(),
                 item: 'Make Dinner',
                 completed: false
             }]
@@ -32,14 +35,15 @@ class App extends React.Component {
         this.setState(prevState => {
             return ({
                 items: prevState.items.filter(el => !el.completed)
-            })
-        })
+            });
+        });
     }
 
     handleAddItem(e) {
         e.preventDefault();
         if (e.target.elements[0].value) {
             const newItem = {
+                id: uuid(),
                 item: e.target.elements[0].value,
                 completed: false
             }
@@ -56,11 +60,18 @@ class App extends React.Component {
 
     }
 
-    handleCompleteItem(index) {
+    handleCompleteItem(idToComplete) {
         this.setState(prevState => {
             return {
-                items: prevState.items.map((el, i) => {
-                    return i === index ? {item: el.item, completed: !el.completed} : el
+                items: prevState.items.map((item) => {
+                    if (item.id === idToComplete) {
+                        return {
+                            ...item,
+                            completed: !item.completed
+                        };
+                    } else {
+                        return item;
+                    }
                 })
             }
         });

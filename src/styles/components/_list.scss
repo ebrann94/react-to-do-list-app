@@ -1,6 +1,5 @@
 .items-container {
     box-shadow: $grey-shadow;
-    background: white;
 
     border-radius: $border-radius;
     overflow: hidden;
@@ -9,4 +8,26 @@
 .list-controls {
     margin-bottom: $m-size;
     width: 500px;
+}
+
+.fade-enter {
+    opacity: 0.01;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 1.0);
+    transition: all 200ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+    background: rgba(255, 255, 255, 1.0);
+}
+
+.fade-exit-active {
+    opacity: 0.01;
+    transition: all 200ms ease-in;
+    background: rgba(255, 255, 255, 0.01);
 }

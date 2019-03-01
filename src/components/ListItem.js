@@ -6,7 +6,7 @@ const ListItem = (props) => {
             <p>{props.item}</p>
             <input 
                 type="checkbox" 
-                onClick={() => props.handleCompleteItem(props.index)} 
+                onClick={() => props.handleCompleteItem(props.id)} 
                 checked={props.completed}
                 className="list-item__checkbox"
             />
