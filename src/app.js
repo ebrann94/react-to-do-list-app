@@ -9,14 +9,14 @@ class App extends React.Component {
     constructor() {
         super();
 
-        this.state = {
+        this.state = JSON.parse(localStorage.getItem('toDos')) || {
             items: [{
                 id: uuid(),
-                item: 'Laundry',
+                text: 'Laundry',
                 completed: false
             }, {
                 id: uuid(),
-                item: 'Make Dinner',
+                text: 'Make Dinner',
                 completed: false
             }]
         };
@@ -25,6 +25,7 @@ class App extends React.Component {
         this.handleAddItem = this.handleAddItem.bind(this);
         this.handleRemoveAll = this.handleRemoveAll.bind(this);
         this.handleRemoveCompleted = this.handleRemoveCompleted.bind(this);
+        this.handleRemoveOne = this.handleRemoveOne.bind(this);
     }
 
     handleRemoveAll() {
@@ -39,12 +40,18 @@ class App extends React.Component {
         });
     }
 
+    handleRemoveOne(idToRemove) {
+        this.setState(state => ({
+            items: state.items.filter(item => item.id !== idToRemove)
+        }));
+    }
+
     handleAddItem(e) {
         e.preventDefault();
         if (e.target.elements[0].value) {
             const newItem = {
                 id: uuid(),
-                item: e.target.elements[0].value,
+                text: e.target.elements[0].value,
                 completed: false
             }
     
@@ -64,21 +71,15 @@ class App extends React.Component {
         this.setState(prevState => {
             return {
                 items: prevState.items.map((item) => {
-                    if (item.id === idToComplete) {
-                        return {
-                            ...item,
-                            completed: !item.completed
-                        };
-                    } else {
-                        return item;
-                    }
+                    return item.id === idToComplete ? {...item, completed: !item.completed} : item;
                 })
             }
         });
     }
 
     componentDidUpdate() {
-        console.log(this.state);
+        // console.log(this.state);
+        localStorage.setItem('toDos', JSON.stringify(this.state));
     }
 
     render() {
@@ -91,7 +92,11 @@ class App extends React.Component {
                             <AddItem handleAddItem={this.handleAddItem} />
                             <RemoveItems handleRemoveAll={this.handleRemoveAll} handleRemoveCompleted={this.handleRemoveCompleted} />
                         </div>
-                        <List items={this.state.items} handleCompleteItem={this.handleCompleteItem}/>
+                        <List 
+                            items={this.state.items} 
+                            handleCompleteItem={this.handleCompleteItem}
+                            handleRemoveOne={this.handleRemoveOne}
+                        />
                     </div>
                 </div>
 

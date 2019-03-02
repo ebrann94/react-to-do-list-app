@@ -4,12 +4,19 @@
 
 html {
     font-size: 62.5%;
-    background: rgb(64, 64, 189);
+    margin: 0;
+    // background: rgb(69, 69, 189);
 }
 
 body {
     font-family: helvetica, arial, sans-serif;
     font-size: $m-size;
+    color: $text-grey;
+    //background-image: linear-gradient(blue, navy );
+    background: rgb(6,0,113);
+    background: linear-gradient(356deg, rgba(6,0,113,1) 0%, rgba(22,22,144,1) 7%, rgba(16,74,182,1) 24%, rgba(16,153,217,1) 100%);
+    min-height: 100vh;
+    height: 100%;
 }
 
 button {

@@ -20,12 +20,9 @@ class List extends React.Component {
                                     key={item.id}
                                 >
                                     <ListItem 
-                                        item={item.item} 
-                                        completed={item.completed} 
-                                        id={item.id}
+                                        {...item}
                                         handleCompleteItem={this.props.handleCompleteItem}
-                                        // {...item} 
-                                        index={index} 
+                                        handleRemoveOne={this.props.handleRemoveOne}
                                     />      
                                 </CSSTransition>
                             );
