@@ -54,7 +54,7 @@ class App extends React.Component {
                 text: e.target.elements[0].value,
                 completed: false
             }
-    
+            
             e.target.elements[0].value = '';
     
             this.setState((prevState) => {

@@ -1,10 +1,14 @@
 import React from 'react';
 
 const ListItem = (props) => {
+    const className = props.completed ? 'completed list-item' : 'list-item';
+
     return (
         <div 
-            className={props.completed ? 'completed list-item' : 'list-item'} 
-            onClick={(e) => {if (e.target.id !== 'completed-checkbox') props.handleCompleteItem(props.id)}}
+            className={className} 
+            onClick={(e) => {
+                if (e.target.id !== 'completed-checkbox') props.handleCompleteItem(props.id)
+            }}
         >   
             <p>{props.text}</p>
             <div>
