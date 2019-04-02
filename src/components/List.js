@@ -19,11 +19,13 @@ class List extends React.Component {
                                     timeout={200}
                                     key={item.id}
                                 >
-                                    <ListItem 
-                                        {...item}
-                                        handleCompleteItem={this.props.handleCompleteItem}
-                                        handleRemoveOne={this.props.handleRemoveOne}
-                                    />      
+                                    <div className="list-item-wrapper">
+                                        <ListItem 
+                                            {...item}
+                                            handleCompleteItem={this.props.handleCompleteItem}
+                                            handleRemoveOne={this.props.handleRemoveOne}
+                                        />
+                                    </div>
                                 </CSSTransition>
                             );
                         })
