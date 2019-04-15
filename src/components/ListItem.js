@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListItem = (props) => {
     const className = props.completed ? 'completed list-item' : 'list-item';
-
+    
     return (
         <div 
             className={className} 
