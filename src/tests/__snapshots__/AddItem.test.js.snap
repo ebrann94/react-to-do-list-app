@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddItem component tests renders without crashing with props 1`] = `ShallowWrapper {}`;
