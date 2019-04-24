@@ -1,7 +1,9 @@
 #ToDo List App
 
-A very simple ToDo list web app.
+A very simple ToDo list web app built with react.
 
 Has the functionality to add items to the list, mark them as completed and remove them.
 
-Unfortunately the data is not persisted so the items will disappear when you close the tab. 
+The data is persisted using the local storage API.
+
+[Live Demo](https://ebrann-todo-frontend.herokuapp.com/)
