@@ -36,6 +36,6 @@ describe('AddItem component tests', () => {
         const wrapper = mount(<AddItem {...props}/>);
         wrapper.find('input').simulate('change', event);
         wrapper.find('form').simulate('submit', { preventDefault() {} });
-        expect(handleAddItem).toHaveBeenCalledWith('Washing Up');
+        expect(handleAddItem).toHaveBeenCalledWith(event.target.value);
     });
 });

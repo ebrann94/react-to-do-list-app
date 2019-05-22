@@ -10,8 +10,11 @@ describe('App component tests', () => {
 
     it('should add one item to state', () => {
         const wrapper = shallow(<App />);
-        wrapper.instance().handleAddItem('Example Text');
-        expect(wrapper.state().items.length).toEqual(3);
+        const text = 'Example Text'
+        const startLength = wrapper.state().items.length;
+        wrapper.instance().handleAddItem(text);
+        expect(wrapper.state().items.length).toEqual(startLength + 1);
+        expect(wrapper.state().items[startLength].text).toEqual(text);
     });
 
     it('should remove completed items', () => {
@@ -21,10 +24,19 @@ describe('App component tests', () => {
         expect(everyResult).toEqual(false);
     });
 
+    it('should remove one item from state', () => {
+        const wrapper = shallow(<App />);
+        const id = wrapper.state().items[0].id;
+        const startLength = wrapper.state().items.length
+        wrapper.instance().handleRemoveOne(id);
+        expect(wrapper.state().items).toHaveLength(startLength - 1);
+    });
+
     it('should remove all items from state', () => {
         const wrapper = shallow(<App />);
         wrapper.instance().handleRemoveAll();
         expect(wrapper.state().items.length).toEqual(0);
     });
+
 
 });

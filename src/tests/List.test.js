@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import List from '../components/List';
+import ListItem from '../components/ListItem';
 
 describe('List component tests', () => {
     it('renders without crashing with required props', () => {
@@ -15,5 +17,6 @@ describe('List component tests', () => {
         }
         const wrapper = shallow(<List {...props}/>);
         expect(wrapper).toMatchSnapshot();
+        expect(wrapper.find(ListItem)).toHaveLength(props.items.length);
     });
 });
