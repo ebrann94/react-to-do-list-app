@@ -2,12 +2,13 @@ import React from 'react';
 import ListItem from './ListItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-const List = (props) => {
+const List = ({ items, handleCompleteItem, handleRemoveOne }) => {
     return (
         <div className="items-container">
+            {/*<p>{items.filter(item => !item.completed).length} Items To Complete</p>*/}
             <TransitionGroup className="todo-list">  
                 {
-                    props.items.map((item) => {
+                    items.map((item) => {
                         return (
                             <CSSTransition
                                 classNames="fade"
@@ -17,8 +18,8 @@ const List = (props) => {
                                 <div className="list-item-wrapper">
                                     <ListItem 
                                         {...item}
-                                        handleCompleteItem={props.handleCompleteItem}
-                                        handleRemoveOne={props.handleRemoveOne}
+                                        handleCompleteItem={handleCompleteItem}
+                                        handleRemoveOne={handleRemoveOne}
                                     />
                                 </div>
                             </CSSTransition>

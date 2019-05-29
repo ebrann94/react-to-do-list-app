@@ -7,19 +7,24 @@ const ListItem = (props) => {
         <div 
             className={className} 
             onClick={(e) => {
-                if (e.target.id !== 'completed-checkbox') props.handleCompleteItem(props.id)
+                if (e.target.name !== 'completed') props.handleCompleteItem(props.id)
             }}
         >   
             <p>{props.text}</p>
-            <div>
+            <div className="list-item__btns">
                 <input 
                     type="checkbox" 
                     onChange={() => props.handleCompleteItem(props.id)} 
                     checked={props.completed}
                     className="list-item__checkbox"
-                    id="completed-checkbox"
+                    name="completed"
                 />
-                <button onClick={() => props.handleRemoveOne(props.id)}>Delete</button>
+                <button
+                    className="list-item__delete"
+                    onClick={() => props.handleRemoveOne(props.id)}
+                >
+                    <div>X</div>
+                </button>
             </div>
         </div>
     );

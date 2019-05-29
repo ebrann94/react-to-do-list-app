@@ -18,7 +18,7 @@ body {
     font-size: $m-size;
     color: $text-grey;
 
-    background: rgb(6,0,113);
+    background: white;
     background: linear-gradient(356deg, rgba(6,0,113,1) 0%, rgba(22,22,144,1) 7%, rgba(16,74,182,1) 24%, rgba(16,153,217,1) 100%);
     min-height: 100vh;
     height: 100%;
@@ -26,12 +26,15 @@ body {
 
 button {
     cursor: pointer;
-    background: white;
-    color: $dark-grey;
+    color: white;
+    // background-image: linear-gradient(#2dabf9, #0688fa);
+    background-image: radial-gradient(#0688fa 0%, #2dabf9 90%);
     font-family: 'Raleway', sans-serif;
 
     border-radius: $border-radius;
-    border: 1px solid $light-grey;
+    //border: 1px solid $light-grey;
+    border: none;
+    //box-shadow: $grey-shadow;
     
     outline: none;
 }

@@ -4,15 +4,22 @@
 
     display: flex;
     justify-content: space-between;
-
-    button {
-        width: 48%;
-        height: 30px;
-    }
     
 }
 
-button:active {
-    border: grey 2px solid;
+.remove-btn {
+    width: 48%;
+    height: 30px;
+
+    //background-image: linear-gradient(#f7474a, darken(#f7474a, 10%));
+}
+
+.remove-btn:hover {
+    //transform: translate(-1px, -1px);
+    box-shadow: $grey-shadow;
+}
+
+.remove-btn:active {
+    border: grey solid;
     border-width: 0 2px 2px 0;
 }
