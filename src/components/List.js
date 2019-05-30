@@ -3,9 +3,12 @@ import ListItem from './ListItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const List = ({ items, handleCompleteItem, handleRemoveOne }) => {
+    const itemsToComplete = items.reduce((total, item) => !item.completed ? total + 1 : total, 0);
     return (
-        <div className="items-container">
-            {/*<p>{items.filter(item => !item.completed).length} Items To Complete</p>*/}
+        <div className="list-container">
+            <p className="list__amt-completed">
+                <span className="list__number">{itemsToComplete}</span> To Do, <span className="list__number">{items.length - itemsToComplete}</span> Done
+            </p>
             <TransitionGroup className="todo-list">  
                 {
                     items.map((item) => {

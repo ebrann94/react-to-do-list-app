@@ -12,13 +12,13 @@ const ListItem = (props) => {
         >   
             <p>{props.text}</p>
             <div className="list-item__btns">
-                <input 
-                    type="checkbox" 
-                    onChange={() => props.handleCompleteItem(props.id)} 
-                    checked={props.completed}
-                    className="list-item__checkbox"
-                    name="completed"
-                />
+                {/*<input */}
+                {/*    type="checkbox" */}
+                {/*    onChange={() => props.handleCompleteItem(props.id)} */}
+                {/*    checked={props.completed}*/}
+                {/*    className="list-item__checkbox"*/}
+                {/*    name="completed"*/}
+                {/*/>*/}
                 <button
                     className="list-item__delete"
                     onClick={() => props.handleRemoveOne(props.id)}

@@ -1,6 +1,15 @@
-.items-container {
+.list-container {
     width: 100%;
     border-radius: $border-radius;
+}
+
+.list__amt-completed {
+    color: white;
+    text-align: center;
+}
+
+.list__number {
+    font-size: 3rem;
 }
 
 .todo-list {
@@ -8,7 +17,7 @@
 }
 
 .list-controls {
-    margin-bottom: $m-size;
+    //margin-bottom: $m-size;
     width: 500px;
 }
 
