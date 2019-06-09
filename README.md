@@ -1,4 +1,4 @@
-# ToDo List App
+# ToDo TaskList App
 
 A very simple ToDo list web app built with react.
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const AddItem = ({ handleAddItem }) => {
+const AddTask = ({ handleAddTask }) => {
     const [inputText, setInputText] = useState("");
 
     return (
@@ -8,7 +8,7 @@ const AddItem = ({ handleAddItem }) => {
             <form onSubmit={e => {
                 e.preventDefault();
                 if (inputText) {
-                    handleAddItem(inputText);
+                    handleAddTask(inputText);
                     setInputText('');
                 }
             }}>
@@ -23,6 +23,6 @@ const AddItem = ({ handleAddItem }) => {
             </form>
         </div>
     );
-}
+};
 
-export default AddItem;
+export default AddTask;

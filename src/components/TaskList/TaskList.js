@@ -1,29 +1,27 @@
 import React from 'react';
-import ListItem from './ListItem';
+import AddTask from './AddTask';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-const List = ({ items, handleCompleteItem, handleRemoveOne }) => {
-    const itemsToComplete = items.reduce((total, item) => !item.completed ? total + 1 : total, 0);
+const TaskList = ({ list, handleDeleteList, renderTask }) => {
+    const itemsToComplete = list.tasks.reduce((total, item) => !item.completed ? total + 1 : total, 0);
     return (
         <div className="list-container">
+            <h2>{list.name}</h2>
             <p className="list__amt-completed">
-                <span className="list__number">{itemsToComplete}</span> To Do, <span className="list__number">{items.length - itemsToComplete}</span> Done
+                <span className="list__number">{itemsToComplete}</span> To Do
             </p>
+            <button onClick={() => handleDeleteList(list.id)}>Delete List</button>
             <TransitionGroup className="todo-list">  
                 {
-                    items.map((item) => {
+                    list.tasks.map(task => {
                         return (
                             <CSSTransition
                                 classNames="fade"
                                 timeout={200}
-                                key={item.id}
+                                key={task.id}
                             >
                                 <div className="list-item-wrapper">
-                                    <ListItem 
-                                        {...item}
-                                        handleCompleteItem={handleCompleteItem}
-                                        handleRemoveOne={handleRemoveOne}
-                                    />
+                                    {renderTask(task)}
                                 </div>
                             </CSSTransition>
                         );
@@ -32,7 +30,6 @@ const List = ({ items, handleCompleteItem, handleRemoveOne }) => {
             </TransitionGroup>
         </div>
     );
-    
-}
+};
 
-export default List;
+export default TaskList;

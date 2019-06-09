@@ -3,24 +3,6 @@
     border-radius: $border-radius;
 }
 
-.list__amt-completed {
-    color: white;
-    text-align: center;
-}
-
-.list__number {
-    font-size: 3rem;
-}
-
-.todo-list {
-    height: 100%;
-}
-
-.list-controls {
-    //margin-bottom: $m-size;
-    width: 500px;
-}
-
 .fade-enter {
     .list-item {
         opacity: 0.01;

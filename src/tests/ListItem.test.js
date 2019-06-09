@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import ListItem from '../components/ListItem';
+import TaskListItem from '../components/TaskList/TaskListItem';
 
-describe('ListItem component tests', () => {
+describe('TaskListItem component tests', () => {
     let wrapper;
     const props = {
         text: 'Example text',
@@ -13,7 +13,7 @@ describe('ListItem component tests', () => {
     }
 
     beforeEach(() => {
-        wrapper = shallow(<ListItem {...props} />)
+        wrapper = shallow(<TaskListItem {...props} />)
     });
 
     afterEach(() => {

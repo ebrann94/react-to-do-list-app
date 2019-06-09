@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import List from '../components/List';
-import ListItem from '../components/ListItem';
+import TaskList from '../components/TaskList/TaskList';
+import TaskListItem from '../components/TaskList/TaskListItem';
 
-describe('List component tests', () => {
+describe('TaskList component tests', () => {
     it('renders without crashing with required props', () => {
         const props = {
             items: [{
@@ -15,8 +15,8 @@ describe('List component tests', () => {
             handleCompleteItem: jest.fn(),
             handleRemoveOne: jest.fn()
         }
-        const wrapper = shallow(<List {...props}/>);
+        const wrapper = shallow(<TaskList {...props}/>);
         expect(wrapper).toMatchSnapshot();
-        expect(wrapper.find(ListItem)).toHaveLength(props.items.length);
+        expect(wrapper.find(TaskListItem)).toHaveLength(props.items.length);
     });
 });

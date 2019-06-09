@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import AddItem from '../components/AddItem';
+import AddTask from '../components/TaskList/AddTask';
 
-describe('AddItem component tests', () => {
+describe('AddTask component tests', () => {
     let wrapper;
     const props = {
         handleAddItem: jest.fn()
     }
     beforeEach(() => {
-        wrapper = mount(<AddItem {...props} />);
+        wrapper = mount(<AddTask {...props} />);
     });
 
     afterEach(() => {
