@@ -4,10 +4,10 @@ const MyListsItem = ({ id, name, handleSelectList, isCurrent }) => {
     const classNames = isCurrent ? 'current-list' : '';
     return (
         <div
-            className={classNames}
+            className={'my-lists-item ' + classNames}
             onClick={() => handleSelectList(id)}
         >
-            <p>{name}</p>
+            <p className="my-lists-item__text">{name}</p>
         </div>
     )
 };

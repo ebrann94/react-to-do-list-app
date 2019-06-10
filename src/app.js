@@ -1,12 +1,12 @@
 import React from 'react';
 import uuid from 'uuid';
 import TaskList from './components/TaskList/TaskList';
-import RemoveItems from './components/RemoveItems';
-import MyLists from './components/UserLists/MyLists';
-import { updateCurrentList } from './utils'
 import TaskListItem from "./components/TaskList/TaskListItem";
-import AddTask from './components/TaskList/AddTask';
-import TextInput from './components/TextInput';
+import MyLists from './components/UserLists/MyLists';
+import MyListsItem from './components/UserLists/MyListsItem';
+import AddItem from './components/AddItem';
+import List from './components/List';
+import { updateCurrentList } from './utils'
 
 class App extends React.Component {
     state = JSON.parse(localStorage.getItem('app-data')) || {
@@ -76,14 +76,14 @@ class App extends React.Component {
             tasks: []
         };
         this.setState(prevState => ({
-            ...prevState,
+            currentListId: newList.id,
             lists: prevState.lists.concat(newList)
         }));
     };
 
     handleDeleteList = (listId) => {
         this.setState(prevState => ({
-            ...prevState,
+            currentListId: this.state.lists[0].id,
             lists: prevState.lists.filter(list => list.id !== listId)
         }))
     };
@@ -101,32 +101,55 @@ class App extends React.Component {
     }
 
     render() {
+        const currentList = this.getListById(this.state.currentListId) || {tasks: [], name: ''};
         return (
             <div className="app-container">
-                <div className="sidebar-container">
+                <header className="sidebar-container">
                     <MyLists
                         {...this.state}
                         handleAddList={this.handleAddList}
                         handleSelectList={this.handleSelectList}
-                    />
-                </div>
+                    >
+                        <List
+                            items={this.state.lists}
+                            className="my-lists__list"
+                            renderItem={(list) => (
+                                <MyListsItem
+                                    key={list.id}
+                                    id={list.id}
+                                    name={list.name}
+                                    handleSelectList={this.handleSelectList}
+                                    isCurrent={list.id === this.state.currentListId}
+                                />
+                            )}
+                        />
+                        <AddItem
+                            handleSubmit={this.handleAddList}
+                            className="add-list"
+                        />
+                    </MyLists>
+                </header>
                 <main className="main-container">
-                    <RemoveItems handleRemoveCompleted={this.handleRemoveCompleted} />
                     <TaskList
-                        list={this.getListById(this.state.currentListId) || this.state.lists[0]}
+                        list={currentList}
                         handleDeleteList={this.handleDeleteList}
-                        renderTask={(task) => (
-                            <TaskListItem
-                                handleCompleteTask={this.handleCompleteTask}
-                                handleDeleteTask={this.handleDeleteTask}
-                                {...task}
-                            />
-                        )}
-                    />
-                    <TextInput
-                        handleSubmit={this.handleAddTask}
-                        placeholder="Add a task"
-                    />
+                    >
+                        <List
+                            items={currentList.tasks}
+                            renderItem={(task) => (
+                                <TaskListItem
+                                    key={task.id}
+                                    handleCompleteTask={this.handleCompleteTask}
+                                    handleDeleteTask={this.handleDeleteTask}
+                                    {...task}
+                                />
+                            )}
+                        />
+                        <AddItem
+                            handleSubmit={this.handleAddTask}
+                            className="add-task"
+                        />
+                    </TaskList>
                 </main>
             </div>
         );

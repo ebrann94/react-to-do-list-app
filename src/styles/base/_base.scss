@@ -2,38 +2,22 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-
-html {
-    font-size: 62.5%;
-    margin: 0;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 body {
-    font-family: 'Raleway', cursive;
-
-    font-size: $m-size;
+    font-family: 'Roboto', sans-serif;
     color: $text-grey;
 
-    background: white;
     height: 100%;
+    margin: 0;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+ul {
+    padding: 0;
     margin: 0;
 }
 
-//button {
-//    cursor: pointer;
-//    color: white;
-//    font-family: 'Raleway', sans-serif;
-//
-//    border-radius: $border-radius;
-//    //border: 1px solid $light-grey;
-//    border: none;
-//    //box-shadow: $grey-shadow;
-//
-//    outline: none;
-//}
-//
-//button:disabled {
-//    cursor: default;
-//}
+p {
+    margin: 0;
+}
