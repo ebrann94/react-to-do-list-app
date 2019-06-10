@@ -40,14 +40,15 @@
     font-size: 1rem;
     padding: 8px 0;
     outline: none;
-    &::placeholder {
-        color: rgba(0,0,0,0.3);
-    }
 }
 
 .add-task__submit {
     padding: 0;
+    margin: 0;
     border: none;
-    color: rgba(0,0,0,0.3);
+    background: white;
+    color: $text-grey;
     font-size: 1.5rem;
+
+    cursor: pointer;
 }

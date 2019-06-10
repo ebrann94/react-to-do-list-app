@@ -22,11 +22,16 @@
 
 
 .add-list {
-    width: 100%;
+    //width: 100%;
 
     font-size: 1.5rem;
     padding: 1rem 0;
 
+}
+
+.add-list__form {
+    display: flex;
+    justify-content: space-between;
 }
 
 .add-list__text {
@@ -49,7 +54,6 @@
 .add-list__submit {
     margin-right: 8px;
     border: none;
-    border-radius: 50%;
 
     color: white;
     background: none;
