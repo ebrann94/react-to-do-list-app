@@ -38,6 +38,28 @@ $check-size: 16px;
     background: mediumaquamarine;
 }
 
+.task__text {
+    cursor: text;
+}
+
+.task__input {
+    //display: block;
+    width: 300px;
+    height: 16px;
+    padding: 0;
+    font-size: 1rem;
+
+    color: $text-grey;
+
+    font-family: Roboto, sans-serif;
+
+    -webkit-appearance: none;
+
+    //border: 1px black solid;
+    line-height: 1;
+    //border: none;
+    outline: none;
+}
 
 $btn-size: 16px;
 .task__delete {

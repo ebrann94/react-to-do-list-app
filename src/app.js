@@ -66,6 +66,21 @@ class App extends React.Component {
         this.setState(prevState => updateCurrentList(prevState, tasksCallback));
     };
 
+    handleEditTask = (id, newText) => {
+        const tasksCallback = tasks => tasks.map(task => {
+            if (task.id === id) {
+                return {
+                    ...task,
+                    text: newText
+                }
+            } else {
+                return task;
+            }
+        });
+
+        this.setState(prevState => updateCurrentList(prevState, tasksCallback))
+    };
+
     getListById = (listId) => {
         return this.state.lists.find(list => listId === list.id);
     };
@@ -148,6 +163,7 @@ class App extends React.Component {
                                     key={listProps.id}
                                     handleCompleteTask={this.handleCompleteTask}
                                     handleDeleteTask={this.handleDeleteTask}
+                                    handleEditTask={this.handleEditTask}
                                     {...listProps}
                                 />
                             )}
