@@ -1,11 +1,15 @@
 import React from 'react';
 
-const TaskListItem = ({ handleCompleteTask, handleDeleteTask, ...props }) => {
+const TaskListItem = ({ handleCompleteTask, handleDeleteTask, dragStart, dragEnd, index, ...props }) => {
     const className = props.completed ? 'task-completed task' : 'task';
-    
+
     return (
-        <div 
-            className={className} 
+        <li
+            className={className}
+            draggable
+            onDragStart={dragStart}
+            onDragEnd={dragEnd}
+            data-index={index}
             onClick={(e) => {
                 if (e.target.name !== 'delete-btn') handleCompleteTask(props.id)
             }}
@@ -23,7 +27,7 @@ const TaskListItem = ({ handleCompleteTask, handleDeleteTask, ...props }) => {
                     X
                 </button>
             </div>
-        </div>
+        </li>
     );
 };
 

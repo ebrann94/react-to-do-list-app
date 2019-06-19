@@ -1,5 +1,4 @@
 export const updateListItems = (lists, current, cb) => {
-    console.log(lists);
     return lists.map(list => {
         if (list.id === current) {
             return {

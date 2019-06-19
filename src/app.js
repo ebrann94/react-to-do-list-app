@@ -6,6 +6,7 @@ import MyLists from './components/UserLists/MyLists';
 import MyListsItem from './components/UserLists/MyListsItem';
 import AddItem from './components/AddItem';
 import List from './components/List';
+import ReOrderableList from './components/ReorderableList';
 import { updateCurrentList } from './utils'
 
 class App extends React.Component {
@@ -92,6 +93,11 @@ class App extends React.Component {
         this.setState({ currentListId: listId });
     };
 
+    handleReorder = newList => {
+        const tasksCallback = () => [...newList];
+        this.setState(prevState => updateCurrentList(prevState, tasksCallback));
+    };
+
     componentDidMount() {
         this.setState(prevState => ({ currentListId: prevState.lists[0].id}))
     }
@@ -134,14 +140,15 @@ class App extends React.Component {
                         list={currentList}
                         handleDeleteList={this.handleDeleteList}
                     >
-                        <List
+                        <ReOrderableList
                             items={currentList.tasks}
-                            renderItem={(task) => (
+                            handleReorder={this.handleReorder}
+                            renderItem={(listProps) => (
                                 <TaskListItem
-                                    key={task.id}
+                                    key={listProps.id}
                                     handleCompleteTask={this.handleCompleteTask}
                                     handleDeleteTask={this.handleDeleteTask}
-                                    {...task}
+                                    {...listProps}
                                 />
                             )}
                         />
